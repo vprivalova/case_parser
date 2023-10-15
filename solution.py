@@ -9,7 +9,7 @@ import requests
 import pandas as pd
 
 
-request = input()
+request = input('Enter your request: ')
 
 NMBRS = '0123456789'
 page_num = 1
@@ -150,6 +150,8 @@ for elem in articles:
 df = pd.DataFrame({'Articles': articles, 'Products': products, 'Brand': brands, 'Price': prices,
                    'Discount': discounts, 'Country': countries})
 pd.set_option('display.max_columns', 7)
+pd.set_option('display.max_rows', len(articles))
+
 sdf = df.sort_values(by=['Price'])
 
 with open('Statistics.txt', 'w') as stat:
